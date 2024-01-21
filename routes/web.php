@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Page;
+use App\Http\Controllers\PageController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +51,12 @@ Route::get('names/{name}',function ($name)  {
         return " Имя неверно ";
     
 });
+
+
+//Задание 9.4
+//Пункт 1
+Route::get('/pages/show', [PageController::class,'showOne']);
+//Пункт 2
+Route::get('/pages/all', [PageController::class,'showAll']);
+//Пункт 3,4
+Route::get('/pages/show/{id}', [Page::class,'showOne']);
