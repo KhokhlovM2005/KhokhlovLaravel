@@ -20,3 +20,12 @@ Route::get('/', function () {
 Route::get('/user/{id?}', function ($id=0) {
     return $id;
 });
+
+//Задание 9.2
+Route::get('/us/{year}/{month}/{day}', function ($year,$month,$day) {
+    $daysd = ['Воскресенье','Понедельник','Вторник','Среда','Четверг','Пятница','суббота'];
+$f=date('w', mktime(0, 0, 0, $month, $day,$year));
+return " День недели: $daysd[$f] ";
+})->where(['year'=>'^[19|20]\d{2}$',
+'month'=>'^(0?[1-9]|1[012])',
+'day'=>'[1-31]+']);
