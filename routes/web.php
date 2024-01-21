@@ -32,3 +32,18 @@ Route::get('/us/{year}/{month}/{day}', function ($year,$month,$day) {
 'month' => '^(0?[1-9]|1[012])$',
 'day' => '^[0-9]*$'
 ]);
+
+//Задание 9.3
+Route::get('names/{name}',function ($name)  {
+    $users = [ 
+        'user1' => 'city1', 
+        'user2' => 'city2', 
+        'user3' => 'city3', 
+        'user4' => 'city4', 
+        'user5' => 'city5'];
+        if (array_key_exists($name,$users)){
+            return  $users[$name] ;
+        }
+        return " Имя неверно ";
+    
+});
