@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+//задание 9.1
+Route::get('/user/{id?}', function ($id=0) {
+    return $id;
+});
